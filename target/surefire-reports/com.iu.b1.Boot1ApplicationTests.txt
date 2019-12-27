@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.iu.b1.Boot1ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.506 s - in com.iu.b1.Boot1ApplicationTests
