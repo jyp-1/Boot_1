@@ -20,7 +20,7 @@
     <ul class="nav navbar-nav navbar-right">
    		<c:if test="${member ne null}">
      	<li><a href="${pageContext.request.contextPath}/member/myPage"><span class="glyphicon glyphicon-user"></span> MyPage</a></li>
-      	<li><a href="${pageContext.request.contextPath}/member/memberLogOut"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
+      	<li><a href="${pageContext.request.contextPath}/member/memberLogout"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
       </c:if>
       	<c:if test="${member eq null}">
       <li><a href="${pageContext.request.contextPath}/member/memberJoin"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

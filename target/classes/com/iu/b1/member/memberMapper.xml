@@ -29,4 +29,10 @@
   		where M.id=#{id} and M.pw=#{pw}
   	</select>
   	
+  	
+  	<select id="memberCheckId" parameterType="com.iu.b1.member.MemberVO" resultType="com.iu.b1.member.MemberVO">
+  	 select id from members where id=#{id}
+  	</select>
+  	
+  	
   </mapper>
