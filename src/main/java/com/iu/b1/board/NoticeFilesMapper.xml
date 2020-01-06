@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.iu.b1.board.NoticeFilesMapper">
+  
+  <!-- <insert id="noticeFilesInsert" parameterType="com.iu.b1.board.NoticeFilesVO" useGeneratedKeys="true" keyProperty="fnum">
+   		insert into NoticeFiles values (0, #{num}, #{fname}, #{oname})
+  </insert> -->
+  
+  <insert id="noticeFilesInsert" parameterType="java.util.List">
+  insert into NoticeFiles values
+  <foreach collection="list" item="item" separator=",">
+  	(null,#{item.num},#{item.fname}, #{item.oname})
+  </foreach>
+  </insert>
+
+<select id="noticeFilesSelect" parameterType="com.iu.b1.board.NoticeVO" resultType="com.iu.b1.board.NoticeFilesVO">
+	select fname from NoticeFiles where num=#{num}
+</select>
+	
+
+
+
+
+  
+  </mapper>

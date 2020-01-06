@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.iu.b1.board.NoticeMapper">
+  
+    <insert id="boardWrite" parameterType="com.iu.b1.board.NoticeVO" useGeneratedKeys="true" keyProperty="num">
+	<!-- <selectKey order="BEFORE" resultType="int" keyProperty="num">
+		select board_seq.nextval from dual
+	</selectKey>  Oracle 에서 시퀀스 사용-->
+  	insert into Notice values(#{num},#{title},#{writer},#{contents},now(),0)
+  	</insert>
+  	
+  	
+  	
+  	<sql id="searching">
+		<choose>
+			<when test="kind == 'kt'">
+				where title like CONCAT('%',#{search},'%')
+			</when>
+			<when test="kind == 'kw'">
+				where writer like CONCAT('%',#{search},'%')
+			</when>
+			<otherwise>
+				where contents like CONCAT('%',#{search},'%')
+			</otherwise>
+		</choose>
+	</sql>
+ 
+  	
+  	
+  	<select id="boardList" parameterType="com.iu.b1.util.Pager" resultType="com.iu.b1.board.NoticeVO">
+  		<!-- select N.* from(
+  		select * from Notice
+  		<include refid="searching"></include>
+  		order by num desc 
+  		)N
+  		limit 0, 10 -->
+  		
+  		select * from Notice 
+  		<include refid="searching"></include>
+  		order by num desc limit #{startRow}, 10
+  	</select>
+  		
+  	
+  	
+  	<select id="noticeCount" resultType="java.lang.Integer" parameterType="com.iu.b1.util.Pager">
+  		select count(num) from Notice
+  		<include refid="searching"></include>
+  	</select>
+  	
+  	
+  	<select id="noticeSelect" parameterType="com.iu.b1.board.NoticeVO" resultType="com.iu.b1.board.NoticeVO">
+  		select * from Notice where num=#{num}
+  	</select>
+
+
+  
+  </mapper>

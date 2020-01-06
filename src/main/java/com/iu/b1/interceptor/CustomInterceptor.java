@@ -11,7 +11,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 public class CustomInterceptor extends HandlerInterceptorAdapter{
 
 	//Controller 진입전 
-	@Override
+	//@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		System.out.println("Controller 진입 전");
@@ -19,7 +19,7 @@ public class CustomInterceptor extends HandlerInterceptorAdapter{
 	}
 	
 	//Controller 종료후 
-	@Override
+	//@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		
@@ -29,7 +29,7 @@ public class CustomInterceptor extends HandlerInterceptorAdapter{
 	
 	
 	//jsp 완성후
-	@Override
+	//@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 		System.out.println("jsp 완성후");

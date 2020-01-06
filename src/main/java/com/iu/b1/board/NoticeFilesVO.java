@@ -1,4 +1,4 @@
-package com.iu.b1.notice;
+package com.iu.b1.board;
 
 public class NoticeFilesVO {
 

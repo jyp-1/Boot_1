@@ -14,33 +14,33 @@ import org.aspectj.lang.annotation.Around;
 @Aspect
 public class CustomAOP {
 	
-	@Before("execution(* com.iu.b1.member.MemberService.memberLogin(..))") 
+	//@Before("execution(* com.iu.b1.member.MemberService.memberLogin(..))") 
 	public void before()throws Exception{
 		System.out.println("Before MemberJoin");
 		
 	}
 	
 	
-	 @AfterReturning("execution(* com.iu.b1.member.MemberService.memberLogin(..))")
+	 //@AfterReturning("execution(* com.iu.b1.member.MemberService.memberLogin(..))")
 	 
 	public void afterReturning()throws Exception{
 		System.out.println("After Returning");
 	}
 	
 	
-	@AfterThrowing("execution(* com.iu.b1.member.MemberService.memberJoin(..))")
+	//@AfterThrowing("execution(* com.iu.b1.member.MemberService.memberJoin(..))")
 	
 	public void AfterThrowing()throws Exception{
 		System.out.println("After Throwing");
 	}
 	
 	
-	@After("execution(* com.iu.b1.member.MemberService.memberLogin(..))")
+	//@After("execution(* com.iu.b1.member.MemberService.memberLogin(..))")
 	public void After()throws Exception{
 		System.out.println("After");
 	}
 	
-	@Around("execution(* com.iu.b1.member.MemberService.memberLogin(..))")
+	//@Around("execution(* com.iu.b1.member.MemberService.memberLogin(..))")
 	public Object Around(ProceedingJoinPoint joinPoint)throws Throwable{
 		
 		System.out.println("메서드 실행전");
